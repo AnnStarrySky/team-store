@@ -35,3 +35,25 @@ export function calculateTotal(items) {
     return total + itemTotal(item)
   }, 0)
 }
+
+export function applyPromoCode(items, promoCode) {
+  const total = calculateTotal(items)
+  const code = promoCode.trim().toUpperCase()
+
+  let discount = 0
+  let message = ''
+
+  if (code === 'SALE10') {
+    discount = total * 0.1
+    message = 'Прормокод применился'
+  } else if (code !== '') {
+    message = 'Не правильный промокод'
+  }
+
+  return {
+    total,
+    discount,
+    totalFinal: total - discount,
+    message,
+  }
+}
