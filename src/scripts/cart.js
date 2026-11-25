@@ -47,7 +47,7 @@ export function applyPromoCode(items, promoCode) {
     discount = total * 0.1
     message = 'Прормокод применился'
   } else if (code !== '') {
-    message = 'Не правильный промокод'
+    message = 'Неправильный промокод'
   }
 
   return {
