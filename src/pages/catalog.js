@@ -15,6 +15,7 @@ export function renderCatalog() {
     const card = document.createElement('li')
     card.className = 'product-card'
     card.innerHTML = `
+      <img class="product-card__image" src="${product.image}" alt="${product.name}" />
       <h2 class="product-card__title">${product.name}</h2>
       <p class="product-card__category">${product.category}</p>
       <p class="product-card__price">${product.price} ₸</p>
