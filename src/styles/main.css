@@ -21,3 +21,14 @@ body {
 #app {
   min-height: 100vh;
 }
+
+img {
+  width: 100%;
+  object-fit: contain;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
