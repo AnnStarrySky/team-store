@@ -1,6 +1,9 @@
 import { products } from '../data/products.js'
 import { cart, addToCart } from '../scripts/cart.js'
 
+import '../styles/main.css'
+import '../styles/catalog.css'
+
 export function renderCatalog() {
   const section = document.createElement('section')
   section.className = 'catalog'
