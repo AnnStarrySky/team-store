@@ -3,11 +3,13 @@ import {
   removeFromCart,
   updateQuantity,
   itemTotal,
-  calculateTotal,
+  applyPromoCode,
 } from '../scripts/cart.js'
 
 export function renderCart() {
   const section = document.createElement('section')
+
+  let promoCode = ''
 
   function render() {
     section.innerHTML = '<h1>Корзина</h1>'
@@ -62,8 +64,35 @@ export function renderCart() {
 
     section.append(itemsList)
 
-    const totalElement = document.createElement('p')
-    totalElement.textContent = `Итого: ${calculateTotal(cart)} ₸`
+    const promoResult = applyPromoCode(cart, promoCode)
+
+    const promoContainer = document.createElement('div')
+
+    const promoInput = document.createElement('input')
+    promoInput.type = 'text'
+    promoInput.placeholder = 'Введите промокод'
+    promoInput.value = promoCode
+
+    const promoBtn = document.createElement('button')
+    promoBtn.textContent = 'применить'
+
+    const promoMessage = document.createElement('p')
+    promoMessage.textContent = promoResult.message
+
+    promoBtn.addEventListener('click', () => {
+      promoCode = promoInput.value
+      render()
+    })
+
+    promoContainer.append(promoInput, promoBtn, promoMessage)
+    section.append(promoContainer)
+
+    const totalElement = document.createElement('div')
+    totalElement.innerHTML = `
+      <p>Сумма без скидки: ${promoResult.total} ₸</p>
+      <p>Скидка: ${promoResult.discount} ₸</p>
+      <p>Итого: ${promoResult.totalFinal} ₸</p>
+    `
     section.append(totalElement)
   }
 
