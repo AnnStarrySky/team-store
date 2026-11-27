@@ -36,7 +36,7 @@ export function renderCatalog() {
   const section = document.createElement('section')
   section.className = 'catalog'
   section.innerHTML = `
-    <h1>Каталог</h1>
+    <h1 class="catalog__title">Каталог</h1>
     <div class="catalog__filters">
       <input class="catalog__search" type="search" placeholder="Поиск по названию" />
       <select class="catalog__category">

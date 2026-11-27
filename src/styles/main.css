@@ -65,9 +65,14 @@ p {
   padding: 0 var(--margin-offset);
 }
 
+.content {
+  margin-bottom: var(--margin-offset);
+}
+
 .header__inner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 0;
 }
 
