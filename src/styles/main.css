@@ -1,11 +1,20 @@
 :root {
-  font-family: Arial, sans-serif;
-  color: #222;
-  background: #fff;
+  font-family: 'Nunito', 'Segoe UI', 'Verdana', sans-serif;
+  color: var(--color-chocolate);
+  background: var(--color-cream);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-cream: #fff8f1;
+  --color-beige: #f4e4d2;
+  --color-caramel: #d88c47;
+  --color-chocolate: #6b3e27;
+  --color-powder: #e7b5a0;
+
+  --border-radius: 20px;
+  --margin-offset: 40px;
 }
 
 * {
@@ -20,6 +29,8 @@ body {
 
 #app {
   min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 img {
@@ -31,4 +42,161 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-caramel);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* inputs */
+
+.input {
+  padding: 10px 16px;
+  font: inherit;
+  color: inherit;
+  background-color: var(--color-beige);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input:focus {
+  background-color: var(--color-cream);
+  border-color: var(--color-caramel);
+  outline: none;
+}
+
+.input::placeholder {
+  color: inherit;
+  opacity: 0.6;
+}
+
+/* buttons */
+
+.btn {
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-caramel);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--color-chocolate);
+}
+
+/* для кнопок + и - для корзины */
+
+.btn--light {
+  color: var(--color-chocolate);
+  background-color: var(--color-beige);
+}
+
+.btn--light:hover {
+  color: #fff;
+  background-color: var(--color-caramel);
+}
+
+/* header */
+
+.header,
+.content {
+  padding: 0 var(--margin-offset);
+}
+
+.content {
+  margin-bottom: var(--margin-offset);
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header__logo-text {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav__link {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* hero */
+
+.hero,
+.promo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+  padding: var(--margin-offset);
+  margin-bottom: var(--margin-offset);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--color-beige);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero {
+  background-image: var(--hero-image);
+}
+
+.promo {
+  background-image: var(--promo-image);
+}
+
+.hero__content,
+.promo__content {
+  max-width: 30%;
+}
+
+/* about */
+
+.about {
+  margin-bottom: var(--margin-offset);
+  text-align: center;
+}
+
+.about-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
