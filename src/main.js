@@ -18,9 +18,12 @@ const routes = [
 ]
 
 routes.forEach(({ selector, render }) => {
-  document.querySelector(selector).addEventListener('click', (e) => {
-    e.preventDefault()
-    showPage(render)
+  const elements = document.querySelectorAll(selector)
+  elements.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault()
+      showPage(render)
+    })
   })
 })
 
