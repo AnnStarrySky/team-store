@@ -65,6 +65,10 @@
   font-weight: 700;
 }
 
+.product-card__button:disabled {
+  cursor: default;
+}
+
 /* filters */
 
 .catalog__filters {

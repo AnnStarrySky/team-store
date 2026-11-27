@@ -18,10 +18,23 @@ function createCard(product) {
     <p class="product-card__price">${product.price} ₸</p>
     <button class="btn product-card__button">В корзину</button>
   `
+  const cardBtn = card.querySelector('.product-card__button')
 
-  card
-    .querySelector('.product-card__button')
-    .addEventListener('click', () => addToCart(cart, product))
+  const isInCart = cart.some((item) => item.id === product.id)
+
+  if (isInCart) {
+    cardBtn.textContent = 'Добавлено ✓'
+    cardBtn.disabled = true
+  }
+
+  cardBtn.addEventListener('click', (event) => {
+    addToCart(cart, product)
+
+    window.dispatchEvent(new CustomEvent('cart:updated'))
+
+    event.currentTarget.textContent = 'Добавлено ✓'
+    event.currentTarget.disabled = true
+  })
 
   return card
 }
