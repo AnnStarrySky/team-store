@@ -4,15 +4,71 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>team-store</title>
+    <title>CatHome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="app">
-      <nav class="nav">
-        <button class="btn btn-about">О нас</button>
-        <button class="btn btn-catalog">Каталог</button>
-        <button class="btn btn-cart">Корзина</button>
-      </nav>
+      <header class="header">
+        <div class="header__inner">
+          <a href="#home" class="header__logo">
+            <svg
+              class="header__logo-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              width="40"
+              height="40"
+              aria-hidden="true"
+            >
+              <g fill="#D88C47">
+                <ellipse
+                  cx="25"
+                  cy="31"
+                  rx="11"
+                  ry="15"
+                  transform="rotate(-25 25 31)"
+                />
+                <ellipse
+                  cx="45"
+                  cy="19"
+                  rx="10"
+                  ry="14"
+                  transform="rotate(-10 45 19)"
+                />
+                <ellipse
+                  cx="66"
+                  cy="23"
+                  rx="10"
+                  ry="14"
+                  transform="rotate(15 66 23)"
+                />
+                <ellipse
+                  cx="81"
+                  cy="39"
+                  rx="10"
+                  ry="14"
+                  transform="rotate(30 81 39)"
+                />
+                <path
+                  d="M50 43 C40 43 31 52 27 62 C21 76 31 83 43 78 C49 75 54 75 60 78 C72 83 82 76 76 62 C70 52 60 43 50 43Z"
+                />
+              </g>
+            </svg>
+            <span class="header__logo-text">CatHome</span>
+          </a>
+
+          <nav class="nav">
+            <a href="#about" class="nav__link btn-about">О нас</a>
+            <a href="#catalog" class="nav__link btn-catalog">Каталог</a>
+            <a href="#cart" class="nav__link btn-cart">Корзина</a>
+          </nav>
+        </div>
+      </header>
       <main class="content"></main>
     </div>
     <script type="module" src="/src/main.js"></script>

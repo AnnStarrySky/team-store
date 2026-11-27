@@ -11,14 +11,17 @@ function showPage(renderFn) {
   content.appendChild(renderFn())
 }
 
-document
-  .querySelector('.btn-about')
-  .addEventListener('click', () => showPage(renderAbout))
-document
-  .querySelector('.btn-catalog')
-  .addEventListener('click', () => showPage(renderCatalog))
-document
-  .querySelector('.btn-cart')
-  .addEventListener('click', () => showPage(renderCart))
+const routes = [
+  { selector: '.btn-about', render: renderAbout },
+  { selector: '.btn-catalog', render: renderCatalog },
+  { selector: '.btn-cart', render: renderCart },
+]
+
+routes.forEach(({ selector, render }) => {
+  document.querySelector(selector).addEventListener('click', (e) => {
+    e.preventDefault()
+    showPage(render)
+  })
+})
 
 showPage(renderAbout)
