@@ -1,10 +1,21 @@
 import { renderAbout } from './pages/about.js'
 import { renderCatalog } from './pages/catalog.js'
 import { renderCart } from './pages/cart.js'
+import { cart, getCartCount } from './scripts/cart.js'
 
 import './styles/main.css'
 
 const content = document.querySelector('.content')
+
+const cartCount = document.querySelector('#cart-count')
+
+function updateCartCount() {
+  cartCount.textContent = getCartCount(cart)
+}
+
+window.addEventListener('cart:updated', updateCartCount)
+
+updateCartCount()
 
 function showPage(renderFn) {
   content.innerHTML = ''
