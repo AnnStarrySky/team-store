@@ -16,7 +16,7 @@ function createCard(product) {
     <h2 class="product-card__title">${product.name}</h2>
     <p class="product-card__category">${product.category}</p>
     <p class="product-card__price">${product.price} ₸</p>
-    <button class="product-card__button">В корзину</button>
+    <button class="btn product-card__button">В корзину</button>
   `
 
   card
@@ -38,19 +38,19 @@ export function renderCatalog() {
   section.innerHTML = `
     <h1 class="catalog__title">Каталог</h1>
     <div class="catalog__filters">
-      <input class="catalog__search" type="search" placeholder="Поиск по названию" />
-      <select class="catalog__category">
+      <input class="input catalog__search" type="search" placeholder="Поиск по названию" />
+      <select class="input catalog__category">
         <option value="all">Все категории</option>
         ${categoryOptions}
       </select>
-      <input class="catalog__price-min" type="number" min="0" placeholder="Цена от" />
-      <input class="catalog__price-max" type="number" min="0" placeholder="Цена до" />
-      <select class="catalog__sort">
+      <input class="input catalog__price-min" type="number" min="0" placeholder="Цена от" />
+      <input class="input catalog__price-max" type="number" min="0" placeholder="Цена до" />
+      <select class="input catalog__sort">
         <option value="default">Без сортировки</option>
         <option value="price-asc">Цена по возрастанию</option>
         <option value="price-desc">Цена по убыванию</option>
       </select>
-      <button class="catalog__reset" type="button">Сбросить</button>
+      <button class="btn catalog__reset" type="button">Сбросить</button>
     </div>
     <p class="catalog__empty" hidden>Ничего не найдено</p>
     <ul class="catalog__list"></ul>
