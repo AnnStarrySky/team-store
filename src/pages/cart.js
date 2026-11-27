@@ -29,6 +29,7 @@ export function renderCart() {
 
       itemElement.innerHTML = `
         <h3>${item.name}</h3>
+        <img class="product-card__image" src=${item.image} alt="${item.name}">
         <p>Цена: ${item.price} ₸</p>
         <button data-action="decrease">−</button>
         <span>${item.quantity}</span>
@@ -41,6 +42,7 @@ export function renderCart() {
         .querySelector('[data-action="decrease"]')
         .addEventListener('click', () => {
           updateQuantity(cart, item.id, item.quantity - 1)
+          window.dispatchEvent(new CustomEvent('cart:updated'))
           render()
         })
 
@@ -48,6 +50,7 @@ export function renderCart() {
         .querySelector('[data-action="increase"]')
         .addEventListener('click', () => {
           updateQuantity(cart, item.id, item.quantity + 1)
+          window.dispatchEvent(new CustomEvent('cart:updated'))
           render()
         })
 
@@ -56,6 +59,7 @@ export function renderCart() {
         .addEventListener('click', () => {
           const updatedCart = removeFromCart(cart, item.id)
           cart.splice(0, cart.length, ...updatedCart)
+          window.dispatchEvent(new CustomEvent('cart:updated'))
           render()
         })
 
